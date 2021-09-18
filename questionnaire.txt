@@ -1,0 +1,53 @@
+MUMT301-2021 Assignment 1
+QUESTIONNAIRE!
+Jamie Oneschuk
+260865305
+
+The following questionnaire seeks to understand your previous knowledge about some of the concepts that we will learn in class during the coming term.
+
+1. Do you know any programming languages? If you do, which ones?
+
+Unfortunately no. 
+
+2. What is your primary computer operating system (OS)?
+
+I have both a Mac and Windows device, but my Mac is what I mostly use for school. 
+
+3. Do you own a smartphone, tablet, or mobile device? What is your favourite OS for mobile devices?
+
+Yes. I prefer the interface of android devices, however I have an iPhone so that all of my devices (MacBook, iPad, etc.) sync. 
+
+4. Do you use any social networking services? If you do, which ones? Why?
+
+Snapchat, Instagram, Facebook, and TikTok. They all serve various purposes, TikTok is mostly for entertainment, while the other 3 are mainly for keeping in touch with friends. 
+
+5. Expand the following acronyms and do research about their meaning. You may look them up if you don't know:
+
+    HTTP: Stands for Hypertext Transfer Protocol, is the foundation of the internet. It serves as the request medium for how web resources such as HTML files are interacted with online
+    REST: Stands for Representational State Transfer, is a communication style that allows systems to communicate with each other. Its hallmark is the use of an independent implementation of the client and implementation of the server, which allows changes to be made to either the server or client without impacting how the two systems communicate with one another    
+    API: Stands for Application Programming Interface, is the system by which applications can interact with one another, and then send that data back to the user to get a response. For example when you try to book tickets to a Drake concert, the system needs to check the ticket site's database to see if there are still tickets available, and then confirm with you that you are still able to buy a ticket. 
+
+6. Do you play a musical instrument or sing? If so, how much experience do you have?
+
+I played the saxophone for 7 years, however I haven't touched one since high school so I'm a bit rusty. I sand in my high school jazz band as well, and continue to sing on occasion 
+
+7. Can you read music notation? If so, how well?
+
+8. How large is your personal music collection? Estimate the number of artists, albums, and songs. If instead you listen to music using streaming services, how many playlists, artists, albums, and songs do you have in your account?
+
+9. How do you search and find new music?
+
+Mostly via word of mouth as well as Apple Music's generated playlists. I occasionally go on SoundCloud however the quality of music is generally much lower.
+
+11. Are you aware of any ways in which artists are dealing with public performances post-COVID? Do you think live performances are essential to your musical experience?
+
+A lot of artists didn't release albums in 2020 because they were hoping to be able to tour, which is obviously where they make the majority of their money. While I don't think live performances are necessary given the ubiquity of streaming services, it is necessary for artists to make money and tours are a big part of what keeps fans interested. 
+
+12. Name two musical artists that you like. What do you find interesting about their music that makes you like them?
+
+6LACK and JID. 
+
+As someone who sings, and listens to a lot of rap music, RnB is where I feel at home because its  modern form is, for all intents and purposes, hip-hop with singing. I really like 6LACK's music because he approaches it from a trap perspective, and it creates a really unique sound. He uses a lot of reversal effects in his music as well which I enjoy.
+
+JID is probably the artist I am most looking forward to over the next few years. I'm not generally a huge fan of the new wave of rappers, mumble rap is not something I enjoy, but JID is one of the few newer artists that truly excites me. His flow is incredible, and his projects (especially his collaborations with Dreamville and EARTHGANG) are always incredibly fun to listen to. 
+
