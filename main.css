@@ -1,0 +1,31 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+.headshot {
+    border: 3px solid rgb(15, 55, 141);
+    padding: 10px;
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 15%;
+
+}
+h1,h1,h3,h4,h5 {
+
+    text-align: center;
+    border: 3px solid rgb(15, 55, 141)
+}
+.text1 {
+    font-size: 30pt;
+    text-align: center;
+
+}
+.text2 {
+    text-align: center;
+}
+.background {
+    background-color:darkslategray
+}
+.text3{
+    font-size: 60pt;
+}
