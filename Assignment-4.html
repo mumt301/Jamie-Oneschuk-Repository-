@@ -1,0 +1,379 @@
+<html>
+  <head>
+    <title>Assignment-4 Table</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="main.css">
+  </head>
+    <body onLoad="displayTable();">
+      <h1>Audio Comparison Table</h1>
+        <div id="table" class="container"></div>
+                
+        <script>
+          let ass4_table = [{ 
+            'file-name':'File-Name',
+            'file-type':'File-Type',
+            'sample-rate': 'Sample-Rate/Quality',
+            'orig-size': 'Original-Size',
+            'comp-size':'Compressed-Size',
+            'ratio':'Compression-Ratio',
+            'orig-file': 'Original-File',
+            'comp-file':'Compressed-File',
+            'res-file':'Residual-File'
+            },
+            { 
+            'file-name':'FL Project',
+            'file-type':'MP3',
+            'sample-rate': 'Low',
+            'orig-size': '6.5mb',
+            'comp-size':'0.655mb',
+            'ratio':'0.1',
+            'orig-file': '<a href="Original 1 min.wav"> Original Audio </a>',
+            'comp-file':'<a href="mp3-low.wav"> Compressed Audio </a>',
+            'res-file':'<a href="mp3-low-res.wav"> Residual Audio </a>',
+            },{ 
+            'file-name':'FL Project',
+            'file-type':'MP3',
+            'sample-rate': 'Medium',
+            'orig-size': '6.5mb',
+            'comp-size':'0.813mb',
+            'ratio':'0.125',
+            'orig-file': '<a href="Original 1 min.wav"> Original Audio </a>',
+            'comp-file':'<a href="mp3-medium.wav"> Compressed Audio </a>',
+            'res-file':'<a href="mp3-medium-res.wav"> Residual Audio </a>',
+            },{ 
+            'file-name':'FL Project',
+            'file-type':'MP3',
+            'sample-rate': 'High',
+            'orig-size': '6.5mb',
+            'comp-size':'1.1mb',
+            'ratio':'0.169',
+            'orig-file': '<a href="Original 1 min.wav"> Original Audio </a>',
+            'comp-file':'<a href="mp3-high.wav"> Compressed Audio </a>',
+            'res-file':'<a href="mp3-high-res.wav"> Residual Audio </a>',
+            },{ 
+            'file-name':'FL Project',
+            'file-type':'MP3',
+            'sample-rate': 'Max',
+            'orig-size': '6.5mb',
+            'comp-size':'3mb',
+            'ratio':'2.167',
+            'orig-file': '<a href="Original 1 min.wav"> Original Audio </a>',
+            'comp-file':'<a href="mp3-max.wav"> Compressed Audio </a>',
+            'res-file':'<a href="mp3-max-res.wav"> Residual Audio </a>',
+            },{ 
+            'file-name':'FL Project',
+            'file-type':'OGG',
+            'sample-rate': 'Low',
+            'orig-size': '6.5mb',
+            'comp-size':'0.455mb',
+            'ratio':'0.07',
+            'orig-file': '<a href="Original 1 min.wav"> Original Audio </a>',
+            'comp-file':'<a href="ogg-low.wav"> Compressed Audio </a>',
+            'res-file':'<a href="ogg-low-res.wav"> Residual Audio </a>',
+            },{ 
+            'file-name':'FL Project',
+            'file-type':'OGG',
+            'sample-rate': 'Medium',
+            'orig-size': '6.5mb',
+            'comp-size':'0.663mb',
+            'ratio':'0.102',
+            'orig-file': '<a href="Original 1 min.wav"> Original Audio </a>',
+            'comp-file':'<a href="ogg-medium.wav"> Compressed Audio </a>',
+            'res-file':'<a href="ogg-medium-res.wav"> Residual Audio </a>',
+            },{ 
+            'file-name':'FL Project',
+            'file-type':'OGG',
+            'sample-rate': 'High',
+            'orig-size': '6.5mb',
+            'comp-size':'0.842mb',
+            'ratio':'0.13',
+            'orig-file': '<a href="Original 1 min.wav"> Original Audio </a>',
+            'comp-file':'<a href="ogg-high.wav"> Compressed Audio </a>',
+            'res-file':'<a href="ogg-high-res.wav"> Residual Audio </a>',
+            },{ 
+            'file-name':'FL Project',
+            'file-type':'OGG',
+            'sample-rate': 'Max',
+            'orig-size': '6.5mb',
+            'comp-size':'1.7mb',
+            'ratio':'0.262',
+            'orig-file': '<a href="Original 1 min.wav"> Original Audio </a>',
+            'comp-file':'<a href="ogg-max.wav"> Compressed Audio </a>',
+            'res-file':'<a href="ogg-max-res.wav"> Residual Audio </a>',
+            },{ 
+            'file-name':'FL Project',
+            'file-type':'MP2',
+            'sample-rate': '64kbps',
+            'orig-size': '6.5mb',
+            'comp-size':'0.738mb',
+            'ratio':'0.114',
+            'orig-file': '<a href="Original 1 min.wav"> Original Audio </a>',
+            'comp-file':'<a href="mp2-80.wav"> Compressed Audio </a>',
+            'res-file':'<a href="mp2-80-res.wav"> Residual Audio </a>',
+            },{ 
+            'file-name':'FL Project',
+            'file-type':'MP2',
+            'sample-rate': '128kbps',
+            'orig-size': '6.5mb',
+            'comp-size':'1.2mb',
+            'ratio':'0.185',
+            'orig-file': '<a href="Original 1 min.wav"> Original Audio </a>',
+            'comp-file':'<a href="mp2-128.wav"> Compressed Audio </a>',
+            'res-file':'<a href="mp2-128-res.wav"> Residual Audio </a>',
+            },{ 
+            'file-name':'FL Project',
+            'file-type':'MP2',
+            'sample-rate': '224kbps',
+            'orig-size': '6.5mb',
+            'comp-size':'2.1mb',
+            'ratio':'0.385',
+            'orig-file': '<a href="Original 1 min.wav"> Original Audio </a>',
+            'comp-file':'<a href="mp2-224.wav"> Compressed Audio </a>',
+            'res-file':'<a href="mp2-224-res.wav"> Residual Audio </a>',
+            },{ 
+            'file-name':'FL Project',
+            'file-type':'MP2',
+            'sample-rate': '384kbps',
+            'orig-size': '6.5mb',
+            'comp-size':'3.5mb',
+            'ratio':'0.538',
+           'orig-file': '<a href="Original 1 min.wav"> Original Audio </a>',
+            'comp-file':'<a href="mp2-384.wav"> Compressed Audio </a>',
+            'res-file':'<a href="mp2-384-res.wav"> Residual Audio </a>',
+            },{ 
+            'file-name':'FL Project',
+            'file-type':'M4A',
+            'sample-rate': '98kbps',
+            'orig-size': '6.5mb',
+            'comp-size':'1.5mb',
+            'ratio':'0.231',
+            'orig-file': '<a href="Original 1 min.wav"> Original Audio </a>',
+            'comp-file':'<a href="m4a-98.wav"> Compressed Audio </a>',
+            'res-file':'<a href="m4a-98-res.wav"> Residual Audio </a>',
+            },{ 
+            'file-name':'FL Project',
+            'file-type':'M4A',
+            'sample-rate': '162kbps',
+            'orig-size': '6.5mb',
+            'comp-size':'1.5mb',
+            'ratio':'0.231',
+            'orig-file': '<a href="Original 1 min.wav"> Original Audio </a>',
+            'comp-file':'<a href="m4a-162.wav"> Compressed Audio </a>',
+            'res-file':'<a href="m4a-162-res.wav"> Residual Audio </a>',
+            },{ 
+            'file-name':'FL Project',
+            'file-type':'M4A',
+            'sample-rate': '256kbps',
+            'orig-size': '6.5mb',
+            'comp-size':'1.5mb',
+            'ratio':'0.231',
+            'orig-file': '<a href="Original 1 min.wav"> Original Audio </a>',
+            'comp-file':'<a href="m4a-256.wav"> Compressed Audio </a>',
+            'res-file':'<a href="m4a-256-res.wav"> Residual Audio </a>',
+            },
+            { 
+            'file-name':'FL Project',
+            'file-type':'M4A',
+            'sample-rate': '320kbps',
+            'orig-size': '6.5mb',
+            'comp-size':'1.6mb',
+            'ratio':'0.246',
+            'orig-file': '<a href="Original 1 min.wav"> Original Audio </a>',
+            'comp-file':'<a href="m4a-320.wav"> Compressed Audio </a>',
+            'res-file':'<a href="m4a-320-res.wav"> Residual Audio </a>',
+            },
+
+
+
+
+
+
+
+            {'file-name':'Bell',
+            'file-type':'MP3',
+            'sample-rate': 'Low',
+            'orig-size': '4.8mb',
+            'comp-size':'0.435mb',
+            'ratio':'0.09',
+            'orig-file': '<a href="bell.wav"> Original Audio </a>',
+            'comp-file':'<a href="mp3-low-2.wav"> Compressed Audio </a>',
+            'res-file':'<a href="mp3-low-res-2.wav"> Residual Audio </a>',
+            },{ 
+            'file-name':'Bell',
+            'file-type':'MP3',
+            'sample-rate': 'Medium',
+            'orig-size': '4.8mb',
+            'comp-size':'0.551mb',
+            'ratio':'0.115',
+            'orig-file': '<a href="bell.wav"> Original Audio </a>',
+            'comp-file':'<a href="mp3-medium-2.wav"> Compressed Audio </a>',
+            'res-file':'<a href="mp3-medium-res-2.wav"> Residual Audio </a>',
+            },{ 
+            'file-name':'Bell',
+            'file-type':'MP3',
+            'sample-rate': 'High',
+            'orig-size': '4.8mb',
+            'comp-size':'0.788mb',
+            'ratio':'0.164',
+            'orig-file': '<a href="bell.wav"> Original Audio </a>',
+            'comp-file':'<a href="mp3-high-2.wav"> Compressed Audio </a>',
+            'res-file':'<a href="mp3-high-res-2.wav"> Residual Audio </a>',
+            },{ 
+            'file-name':'Bell',
+            'file-type':'MP3',
+            'sample-rate': 'Max',
+            'orig-size': '4.8mb',
+            'comp-size':'1.0mb',
+            'ratio':'2.08',
+            'orig-file': '<a href="bell.wav"> Original Audio </a>',
+            'comp-file':'<a href="mp3-max-2.wav"> Compressed Audio </a>',
+            'res-file':'<a href="mp3-max-res-2.wav"> Residual Audio </a>',
+            },{ 
+            'file-name':'Bell',
+            'file-type':'OGG',
+            'sample-rate': 'Low',
+            'orig-size': '4.8mb',
+            'comp-size':'0.359mb',
+            'ratio':'0.07',
+            'orig-file': '<a href="bell.wav"> Original Audio </a>',
+            'comp-file':'<a href="ogg-low-2.wav"> Compressed Audio </a>',
+            'res-file':'<a href="ogg-low-res-2.wav"> Residual Audio </a>',
+            },{ 
+            'file-name':'Bell',
+            'file-type':'OGG',
+            'sample-rate': 'Medium',
+            'orig-size': '4.8mb',
+            'comp-size':'0.411mb',
+            'ratio':'0.09',
+            'orig-file': '<a href="bell.wav"> Original Audio </a>',
+            'comp-file':'<a href="ogg-medium-2.wav"> Compressed Audio </a>',
+            'res-file':'<a href="ogg-medium-res-2.wav"> Residual Audio </a>',
+            },{ 
+            'file-name':'Bell',
+            'file-type':'OGG',
+            'sample-rate': 'High',
+            'orig-size': '4.8mb',
+            'comp-size':'0.590mb',
+            'ratio':'0.123',
+            'orig-file': '<a href="bell.wav"> Original Audio </a>',
+            'comp-file':'<a href="ogg-high-2.wav"> Compressed Audio </a>',
+            'res-file':'<a href="ogg-high-res-2.wav"> Residual Audio </a>',
+            },{ 
+            'file-name':'Bell',
+            'file-type':'OGG',
+            'sample-rate': 'Max',
+            'orig-size': '4.8mb',
+            'comp-size':'0.720mb',
+            'ratio':'0.15',
+            'orig-file': '<a href="bell.wav"> Original Audio </a>',
+            'comp-file':'<a href="ogg-max-2.wav"> Compressed Audio </a>',
+            'res-file':'<a href="ogg-max-res-2.wav"> Residual Audio </a>',
+            },{ 
+            'file-name':'Bell',
+            'file-type':'MP2',
+            'sample-rate': '64kbps',
+            'orig-size': '4.8mb',
+            'comp-size':'0.400mb',
+            'ratio':'0.08',
+            'orig-file': '<a href="bell.wav"> Original Audio </a>',
+            'comp-file':'<a href="mp2-64-2.wav"> Compressed Audio </a>',
+            'res-file':'<a href="mp2-63-res-2.wav"> Residual Audio </a>',
+            },{ 
+            'file-name':'Bell',
+            'file-type':'MP2',
+            'sample-rate': '128kbps',
+            'orig-size': '4.8mb',
+            'comp-size':'1.2mb',
+            'ratio':'0.25',
+            'orig-file': '<a href="bell.wav"> Original Audio </a>',
+            'comp-file':'<a href="mp2-128-2.wav"> Compressed Audio </a>',
+            'res-file':'<a href="mp2-128-res-2.wav"> Residual Audio </a>',
+            },{ 
+            'file-name':'Bell',
+            'file-type':'MP2',
+            'sample-rate': '224kbps',
+            'orig-size': '4.8mb',
+            'comp-size':'1.6mb',
+            'ratio':'0.333',
+            'orig-file': '<a href="bell.wav"> Original Audio </a>',
+            'comp-file':'<a href="mp2-256-2.wav"> Compressed Audio </a>',
+            'res-file':'<a href="mp2-256-res-2.wav"> Residual Audio </a>',
+            },{ 
+            'file-name':'Bell',
+            'file-type':'MP2',
+            'sample-rate': '384kbps',
+            'orig-size': '4.8mb',
+            'comp-size':'2.4mb',
+            'ratio':'0.5',
+           'orig-file': '<a href="bell.wav"> Original Audio </a>',
+            'comp-file':'<a href="mp2-384-2.wav"> Compressed Audio </a>',
+            'res-file':'<a href="mp2-384-res-2.wav"> Residual Audio </a>',
+            },{ 
+            'file-name':'Bell',
+            'file-type':'M4A',
+            'sample-rate': '98kbps',
+            'orig-size': '4.8mb',
+            'comp-size':'1.1mb',
+            'ratio':'0.229',
+            'orig-file': '<a href="bell.wav"> Original Audio </a>',
+            'comp-file':'<a href="m4a-98-2.wav"> Compressed Audio </a>',
+            'res-file':'<a href="m4a-98-res-2.wav"> Residual Audio </a>',
+            },{ 
+            'file-name':'Bell',
+            'file-type':'M4A',
+            'sample-rate': '162kbps',
+            'orig-size': '4.8mb',
+            'comp-size':'1.2mb',
+            'ratio':'0.25',
+            'orig-file': '<a href="bell.wav"> Original Audio </a>',
+            'comp-file':'<a href="m4a-162-2.wav"> Compressed Audio </a>',
+            'res-file':'<a href="m4a-162-res-2.wav"> Residual Audio </a>',
+            },{ 
+            'file-name':'Bell',
+            'file-type':'M4A',
+            'sample-rate': '256kbps',
+            'orig-size': '4.8mb',
+            'comp-size':'1.2mb',
+            'ratio':'0.25',
+            'orig-file': '<a href="bell.wav"> Original Audio </a>',
+            'comp-file':'<a href="m4a-256-2.wav"> Compressed Audio </a>',
+            'res-file':'<a href="m4a-256-res-2.wav"> Residual Audio </a>',
+            },
+            { 
+            'file-name':'Bell',
+            'file-type':'M4A',
+            'sample-rate': '320kbps',
+            'orig-size': '4.8mb',
+            'comp-size':'1.2mb',
+            'ratio':'0.25',
+            'orig-file': '<a href="bell.wav"> Original Audio </a>',
+            'comp-file':'<a href="m4a-320-2.wav"> Compressed Audio </a>',
+            'res-file':'<a href="m4a-320-res-2.wav"> Residual Audio </a>',
+            },
+        
+        
+        ]
+      
+          function displayTable() {
+            let table = document.createElement('table');
+            table.id = "comp_table"
+            for (row = 0; row < ass4_table.length; row++) {
+              tr = document.createElement('tr');
+              let columns = Object.keys(ass4_table[row]);
+              for (col = 0; col < columns.length; col++) {
+                td = document.createElement('td');
+                tr.appendChild(td);
+                td.innerHTML = ass4_table[row][columns[col]];
+              }
+              table.appendChild(tr);
+            }
+            document.getElementById("table").appendChild(table);
+          }
+        </script>
+
+<p><a href="assignments.html">Back To My Assignments Page</a></p>
+      </body>
+</html>
+
+</body>
+</html>
