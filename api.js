@@ -52,7 +52,7 @@ function getAlbums(xhttp) {
    console.log(AlbumNames);
    let AlbumDates = data.getElementsByTagName("first-release-date")[0].innerHTML;
    console.log(AlbumDates);
-   table += "<tr><td>AlbumNames</td><td>AlbumDates</td><tr>";
+   table += "<tr><td>" + AlbumNames + "</td>" + "<td>" + AlbumDates + "</td><tr>"
    }
    table += "</table>" 
    placeholder.innerHTML = table;
