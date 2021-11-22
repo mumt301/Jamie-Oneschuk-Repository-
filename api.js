@@ -69,14 +69,10 @@ function getAlbums(xhttp) {
             
 
             window.onload = queryArtist;
-        }
-    }
 
-}
 
 
        
     
    
 
-window.onload = queryArtist;
