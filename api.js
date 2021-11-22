@@ -35,44 +35,48 @@ function getMBID(xhttp) {
     let mBaseURL = "https://musicbrainz.org/ws/2/release-group?artist="; 
     let queryURL = mBaseURL + artistMBID;
     console.log(queryURL);
-    httpGet(queryURL, getAlbums)
+   queryAlbums(artistMBID)
 }
 
 
 function getAlbums(xhttp) {
-    let retrievedData = xhttp.responseXML;
-    console.log(retrievedData);
-    var discography = []; 
-    let albums=retrievedData.getElementsByTagName('release-group');
-    for (var i = albums.length - 1; i >=0; i--) {
-        let type=albums[i].getAttribute('type');
-        console.log(type);
-        if(type=='Album') {
-            discography.push(albums[i]);
+   let retrievedData = xhttp.responseXML;
+   console.log(retrievedData);
+   let albums=retrievedData.getElementsByTagName('release-group');
+   console.log (albums)
+   let placeholder = document.getElementById('placeholder');
+   let tableHTML = `<table><tr><th>Album Title</th><th>Release Date</th></tr>`;
+                        let albumHTML;
+                        let albumTitle;
+                        let releaseDate;
+                        for (row=0; row<discography.length; row++)
+                {
+
+                    albumHTML=discography[row]
+                    albumTitle=albumHTML.getElementsByTagName('title')[0].innerHTML;
+                    releaseDate=albumHTML.getElementsByTagName('first-release-date')[0].innerHTML;
+                    tableHTML += `<tr><td>${albumTitle}</td><td>${releaseDate}</td></tr>`;
+                }
+                
+                
+                
+                tableHTML += `</table>`;
+                placeholder.innerHTML=tableHTML;
+                
+                
+                }
+
+            
+
+            window.onload = queryArtist;
         }
     }
 
 }
 
-function displayTable(discography) {
-    let table = document.createElement('table');
-    table.id = 'table';
-    tr = document.createElement('tr');
-    td1 = document.createElement('td');
-    td2 = document.createElement('td');
-    td1.innerHTML = "<b>Album Name<b>";
-    td2.innerHTML = "<b>Date of Release<b>";
-  
-    
-    for (row = 0; row < discography.length; row++) {
-        tr = document.createElement('tr');
-        td1 = document.createElement('td');
-        td2 = document.createElement('td');
-        td1.innerHTML = discography[row].getElementsByTagName('title')[0].innerHTML;
-        td2.innerHTML = discography[row].getElementsByTagName('first-release-date')[0].innerHTML;
+
        
-    }
     
    
 
-window.onload = queryArtist;}
+window.onload = queryArtist;
