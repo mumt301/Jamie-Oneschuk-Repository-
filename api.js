@@ -48,10 +48,12 @@ function getAlbums(xhttp) {
    var AlbumDates = [];
    let table = "<table><tr><th>Title</th><th>Date/th></tr>";
    for (let row=0; row<albums.length;row++){
-   AlbumName = albums.getElementsByTagName("title")[0].innerHTML;
-   AlbumDates = albums.getElementsByTagName("first-release-date")[0].innerHTML;
-   table += `<tr><td>${AlbumnName}</td><td>${AlbumDates}</td><tr>`
-   table += "</table>" }
+   let data = albums[row];
+   let AlbumNames = data.getElementsByTagName("title")[0].innerHTML;
+   let AlbumDates = data.getElementsByTagName("first-release-date")[0].innerHTML;
+   table += `<tr><td>${AlbumNames}</td><td>${AlbumDates}</td><tr>`
+   }
+   table += "</table>" 
    placeholder.innerHTML = table
    }
 window.onload = queryArtist
