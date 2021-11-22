@@ -50,8 +50,8 @@ function getAlbums(xhttp) {
    for (let i=0; i<albums.length;i++){
    AlbumName = albums.getElementsByTagName("title")[0].innerHTML;
    AlbumDates = albums.getElementsByTagName("first-release-date")[0].innerHTML;
-   table += `<tr><td>${AlbumnName}</td><td>${AlbumDates}</td><tr>`}
-
+   table += `<tr><td>${AlbumnName}</td><td>${AlbumDates}</td><tr>`
+   table += "</table>" }
    placeholder.innerHTML = table
    }
 window.onload = queryArtist
