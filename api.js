@@ -53,15 +53,5 @@ function getAlbums(xhttp) {
    table += `<tr><td>${AlbumnName}</td><td>${AlbumDates}</td><tr>`}
 
    placeholder.innerHTML = table
-
-  
-            
-
+   }
 window.onload = queryArtist
-
-
-
-       
-    
-   
-
