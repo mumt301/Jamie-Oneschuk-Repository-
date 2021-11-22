@@ -48,7 +48,7 @@ function getAlbums(xhttp) {
    let i=row
    let table = "<table><tr><th>Title</th><th>Date</th></tr>";
    for (let i=0;i<albums.length; i++){
-   let data = albums[row];
+   let data = albums[i];
    let AlbumNames = data.getElementsByTagName("title")[0].innerHTML;
    console.log(AlbumNames);
    let AlbumDates = data.getElementsByTagName("first-release-date")[0].innerHTML;
