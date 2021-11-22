@@ -51,8 +51,7 @@ function getAlbums(xhttp) {
             discography.push(albums[i]);
         }
     }
-    sortedDisco=discography.sort((a,b)=>new Date(a.getElementsByTagName('first-release-date')[0].innerHTML) - new Date(b.getElementsByTagName('first-release-date')[0].innerHTML));
-    displayTable(sortedDisco);
+
 }
 
 function displayTable(discography) {
@@ -76,4 +75,4 @@ function displayTable(discography) {
     
    
 
-window.onload = queryArtist;
+window.onload = queryArtist;}
