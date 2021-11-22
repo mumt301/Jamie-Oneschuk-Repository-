@@ -36,6 +36,7 @@ function getMBID(xhttp) {
     let queryURL = mBaseURL + artistMBID;
     console.log(queryURL);
     httpGet(queryURL,getAlbums);
+    getAlbums(artistMBID)
 }
 
 
