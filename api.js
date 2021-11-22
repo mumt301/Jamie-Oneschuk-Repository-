@@ -35,7 +35,7 @@ function getMBID(xhttp) {
     let mBaseURL = "https://musicbrainz.org/ws/2/release-group?artist="; 
     let queryURL = mBaseURL + artistMBID;
     console.log(queryURL);
-   queryAlbums(artistMBID)
+    httpGet(getAlbums);
 }
 
 
@@ -43,32 +43,21 @@ function getAlbums(xhttp) {
    let retrievedData = xhttp.responseXML;
    console.log(retrievedData);
    let albums=retrievedData.getElementsByTagName('release-group');
-   console.log (albums)
    let placeholder = document.getElementById('placeholder');
-   let tableHTML = `<table><tr><th>Album Title</th><th>Release Date</th></tr>`;
-                        let albumHTML;
-                        let albumTitle;
-                        let releaseDate;
-                        for (row=0; row<discography.length; row++)
-                {
+   var AlbumNames = [];
+   var AlbumDates = [];
+   let table = "<table><tr><th>Title</th><th>Date/th></tr>";
+   for (let i=0; i<albums.length;i++){
+   AlbumName = albums.getElementsByTagName("title")[0].innerHTML;
+   AlbumDates = albums.getElementsByTagName("first-release-date")[0].innerHTML;
+   table += `<tr><td>${AlbumnName}</td><td>${AlbumDates}</td><tr>`}
 
-                    albumHTML=discography[row]
-                    albumTitle=albumHTML.getElementsByTagName('title')[0].innerHTML;
-                    releaseDate=albumHTML.getElementsByTagName('first-release-date')[0].innerHTML;
-                    tableHTML += `<tr><td>${albumTitle}</td><td>${releaseDate}</td></tr>`;
-                }
-                
-                
-                
-                tableHTML += `</table>`;
-                placeholder.innerHTML=tableHTML;
-                
-                
-                }
+   placeholder.innerHTML = table
 
+  
             
 
-            window.onload = queryArtist;
+window.onload = queryArtist
 
 
 
