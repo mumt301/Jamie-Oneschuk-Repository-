@@ -46,7 +46,7 @@ function getAlbums(xhttp) {
    let albums=retrievedData.getElementsByTagName('release-group');
    let placeholder = document.getElementById('placeholder');
    let table = "<table><tr><th>Title</th><th>Date</th></tr>";
-   for (let row=0; row<albums.length; row++){
+   for (let row = 0; row < albums.length; row++){
    let data = albums[row];
    let AlbumNames = data.getElementsByTagName("title")[0].innerHTML;
    console.log(AlbumNames);
