@@ -23,22 +23,10 @@ function thereminControl(e, oscillator, oscillator2, theremin, urlParameters) {
     if (urlParameters.has('semitones')) {
         let semitones = parseInt(urlParameters.get('semitones'));
         oscillator2.frequency = interval(thereminFreq, semitones);
-        notename2.innerHTML = noteFromFrequency(oscillator2.frequency);
-        frequency2.innerHTML = oscillator2.frequency;
     } else {
         oscillator2.frequency = 0;
     }
-
-    if (urlParameters.has('sat'=1)){
-        var sound = new Pizzicato.Sound();
-        var distortion = new Pizzicato.Effects.Distortion();
-        sound.addEffect(distortion); 
-    } else {
-        sound.removeEffect(distortion)
-    }
-
-    console.log("Frequency2: ", oscillator2.frequency);
-
+    
     console.log("Volume: ", thereminVolume);
     oscillator.volume = thereminVolume;
     oscillator2.volume = thereminVolume;
@@ -51,9 +39,14 @@ function thereminOff(oscillator, oscillator2) {
 
 
 function runAfterLoadingPage() {
-    let oscillatorType = "sine";
-
     let urlParameters = (new URL(document.location)).searchParams;
+
+    if (urlParameters.has('sat')){
+        var sound = new Pizzicato.Sound();
+        var distortion = new Pizzicato.Effects.Distortion();
+        sound.addEffect(distortion); 
+
+    }
     if (urlParameters.has('oscillatorType')) {
     oscillatorType = urlParameters.get('oscillatorType');
 }
@@ -63,7 +56,6 @@ function runAfterLoadingPage() {
     if (urlParameters.has('maxhz')) {
     maxhz = parseInt(urlParameters.get('maxhz'));
 }
-
     const oscillator = new Pizzicato.Sound({
         source: 'wave',
         options: {
@@ -77,6 +69,8 @@ function runAfterLoadingPage() {
             type: oscillatorType,
             frequency: 220
         }
+
+        
     });
     const theremin = document.getElementById("thereminZone");
 
