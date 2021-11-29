@@ -1,59 +1,150 @@
-
-"use strict";
-
-function thereminOn(oscillator) {
+function thereminOn(oscillator, oscillator2) {
     oscillator.play();
+    oscillator2.play();
 }
 
-function thereminControl(e, oscillator, theremin) {
+function thereminControl(e, oscillator, oscillator2, theremin, urlParameters) {
     let x = e.offsetX;
     let y = e.offsetY;
     console.log(x, y);
 
     let minFrequency = 220.0;
     let maxFrequency = 880.0;
+    let notename = document.getElementById('notename')
     let freqRange = maxFrequency - minFrequency;
     let thereminFreq = minFrequency + (x / theremin.clientWidth) * freqRange;
     let thereminVolume = 1.0 - (y / theremin.clientHeight);
 
     console.log("Frequency: ", thereminFreq);
     oscillator.frequency = thereminFreq;
+    notename.innerHTML = noteFromFrequency(thereminFreq);
+    frequency.innerHTML = thereminFreq;
+
+    if (urlParameters.has('semitones')) {
+        let semitones = parseInt(urlParameters.get('semitones'));
+        oscillator2.frequency = interval(thereminFreq, semitones);
+        notename2.innerHTML = noteFromFrequency(oscillator2.frequency);
+        frequency2.innerHTML = oscillator2.frequency;
+    } else {
+        oscillator2.frequency = 0;
+    }
+
+    if (urlParameters.has('sat'=1)){
+        var sound = new Pizzicato.Sound();
+        var distortion = new Pizzicato.Effects.Distortion();
+        sound.addEffect(distortion); 
+    } else {
+        sound.removeEffect(distortion)
+    }
+
+    console.log("Frequency2: ", oscillator2.frequency);
+
     console.log("Volume: ", thereminVolume);
     oscillator.volume = thereminVolume;
+    oscillator2.volume = thereminVolume;
 }
 
-// Turn theremin off
-function thereminOff(oscillator) {
+function thereminOff(oscillator, oscillator2) {
     oscillator.stop();
+    oscillator2.stop();
 }
+
 
 function runAfterLoadingPage() {
-    // Instantiate a sine wave with pizzicato.js
+    let oscillatorType = "sine";
+
+    let urlParameters = (new URL(document.location)).searchParams;
+    if (urlParameters.has('oscillatorType')) {
+    oscillatorType = urlParameters.get('oscillatorType');
+}
+    if (urlParameters.has('minhz')) {
+    minhz = parseInt(urlParameters.get('minhz'));
+}
+    if (urlParameters.has('maxhz')) {
+    maxhz = parseInt(urlParameters.get('maxhz'));
+}
+
     const oscillator = new Pizzicato.Sound({
         source: 'wave',
         options: {
-            type: "sine",
+            type: oscillatorType,
             frequency: 220
         }
     });
-
-    // Get the theremin div from the html
+    const oscillator2 = new Pizzicato.Sound({
+        source: 'wave',
+        options: {
+            type: oscillatorType,
+            frequency: 220
+        }
+    });
     const theremin = document.getElementById("thereminZone");
 
-    // Theremin plays when the mouse enters the theremin div
-    theremin.addEventListener("mouseenter", function () {
-        thereminOn(oscillator);
+    theremin.addEventListener("mouseenter", function (e) {
+        thereminOn(oscillator, oscillator2);
     });
-
-    // Theremin is controlled while the mouse is inside the theremin div
     theremin.addEventListener("mousemove", function (e) {
-        thereminControl(e, oscillator, theremin);
+        thereminControl(e, oscillator, oscillator2, theremin, urlParameters);
     });
-
-    // Theremin stops when the mouse leaves the theremin div
     theremin.addEventListener("mouseleave", function () {
-        thereminOff(oscillator);
+        thereminOff(oscillator, oscillator2);
     });
 }
+"use strict";
 
+
+let notenames = {
+    0: "C",
+    1: "C#",
+    2: "D",
+    3: "Eb",
+    4: "E",
+    5: "F",
+    6: "F#",
+    7: "G",
+    8: "Ab",
+    9: "A",
+    10: "Bb",
+    11: "B"
+}
+
+function interval(frequency, semitones) {
+
+    return frequency * Math.pow(2, semitones / 12);
+}
+
+function midiToFrequency(midinumber, concertA = 440) {
+    const A4 = 69
+    if (midinumber === A4) {
+        return concertA;
+    }
+    let semitones = midinumber - A4;
+    return interval(440, semitones);
+}
+
+function midiFromFrequency(frequency) {
+    let minDiff = Number.MAX_VALUE;
+    let midinumber = -1;
+    for (let midi = 0; midi < 128; midi++) {
+        let midiFreq = midiToFrequency(midi);
+        let freqDiff = Math.abs(midiFreq - frequency);
+        if (freqDiff < minDiff) {
+            minDiff = freqDiff;
+            midinumber = midi;
+        }
+    }
+    return midinumber
+}
+
+function noteFromFrequency(frequency, withOctave=false) {
+    const midinumber = midiFromFrequency(frequency);
+    const pitchclass = midinumber % 12;
+    let octave = (midinumber - pitchclass) / 12;
+    let notename = notenames[pitchclass];
+    if (withOctave) {
+        octave--;
+        notename += octave;
+    }
+    return notename;
+}
 window.onload = runAfterLoadingPage;

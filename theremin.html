@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Web-Based Musical Instrument</title>
+        <link rel="stylesheet" href="https://cdn.rawgit.com/Chalarangelo/mini.css/v3.0.1/dist/mini-default.min.css">
+        <link rel="stylesheet" href="theremin.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pizzicato/0.6.4/Pizzicato.js"></script>
+        <script src="theremin.js" type="text/JavaScript"></script>
+    </head>
+    <body>
+        <h1>An online <span id="thereminLogo">Theremin</span> instrument</h1>
+        <a href="assignments.html">Assignments Page</a>
+        <p>The theremin is an electronic musical instrument invented by <a
+                href="https://en.wikipedia.org/wiki/Leon_Theremin">Leon Theremin</a> in 1920s.</p>
+        <p>This demo uses <a href="https://alemangui.github.io/pizzicato/">pizzicato.js</a> to implement a "virtual"
+            Theremin on your browser.
+        </p>
+        <p>The <code>pizzicato.js</code> library (and other similar ones) use the <a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API">Web Audio API</a> to play sounds on
+            the browser.</p>
+        <div id="thereminZone"></div>
+        <p id="notename"></p>
+        <p id="frequency"></p>
+        <form method="GET" id="theform">
+            <fieldset>
+                <legend>Options</legend>
+                <label for="minfreq">Minimum Frequency (between 220Hz-440Hz):</label>
+                <input type="number" id="minhz" name="minhz" min="220" max="440" value="220"><br>
+
+                <label for="maxfreq">Maximum Frequency (between 660Hz-880Hz):</label>
+                <input type="number" id="maxhz" name="maxhz" min="660" max="880" value="880"><br>
+
+                <label for="oscillatorType"> Wave Type</label>
+                <select name="oscillatorType" id="oscillatorType">
+                    <option value="Sine">Sine</option>
+                    <option value="Square">Square</option>
+                    <option value="Triangle">Triangle</option>
+                    <option value="Sawtooth">Sawtooth</option>
+                </select><br>
+
+                <label for="semitones">Interval</label>
+                <select name="semitones" id="semitones">
+                    <option value="0">Unison</option>
+                    <option value="3">Minor Third</option>
+                    <option value="4">Major Third</option>
+                    <option value="7">Perfect Fifth</option>
+                    <option value="12">Octave</option>
+                </select><br>
+
+                <label for="sat">Distortion</label>
+                <select name="sat" id="sat">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select><br>
+
+               
+
+                <input type="submit" value="Change Theremin Settings">
+            </fieldset>
+        </form>
+    </body>
+</html>
